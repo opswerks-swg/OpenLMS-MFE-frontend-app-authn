@@ -1,29 +1,49 @@
-### Description
+## Summary
 
-Include a description of your changes here, along with a link to any relevant Jira tickets and/or Github issues.
+sample content of your PRs here
+<!-- Briefly describe what this PR changes. -->
 
-#### JIRA
+## Related Ticket / Issue
 
-[XXX-XXXX](https://2u-internal.atlassian.net/browse/XXX-XXXX)
+<!-- Link the ClickUp task, etc. -->
 
-#### How Has This Been Tested?
+## Type of Change
 
-Please describe in detail how you tested your changes.
+- [ ] Bug fix
+- [ ] Feature
+- [ ] Refactor
+- [ ] Documentation
+- [ ] Chore / Maintenance
 
-#### Screenshots/sandbox (optional):
+## What Changed?
 
-Include a link to the sandbox for design changes or screenshot for before and after. **Remove this section if its not applicable.**
+<!-- List the important changes made in this PR. -->
 
-|Before|After|
-|-------|-----|
-|      |      |
+-
+-
+-
 
-#### Merge Checklist
+## How Was This Tested?
 
-* [ ] If your update includes visual changes, have they been reviewed by a designer? Send them a link to the Sandbox, if applicable.
-* [ ] Is there adequate test coverage for your changes?
+<!-- Explain how you verified the change. -->
 
-#### Post-merge Checklist
+- [ ] Unit tests
+- [ ] Integration tests
+- [ ] Manual testing
+- [ ] Not tested, explanation below:
 
-* [ ] Deploy the changes to prod after verifying on stage or ask **@openedx/2u-infinity** to do it. 
-* [ ] 🎉 🙌 Celebrate! Thanks for your contribution.
+## Screenshots / Recordings
+
+<!-- Add screenshots or recordings for UI changes. -->
+
+## Checklist
+
+- [ ] Code follows project standards
+- [ ] Tests were added or updated
+- [ ] Documentation was updated if needed
+- [ ] No secrets, credentials, or sensitive data were committed
+- [ ] I reviewed my own changes before requesting review
+
+## Notes for Reviewers
+
+<!-- Anything specific reviewers should focus on? -->
