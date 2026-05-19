@@ -97,6 +97,9 @@ const LoginPage = ({
     params.tpa_hint = tpaHint;
   }
   const { data, isSuccess, error } = useThirdPartyAuthHook(LOGIN_PAGE, params);
+  const isCustomLoginPageEnabled = getConfig().ENABLE_CUSTOM_LOGIN_PAGE;
+  const appVersion = getConfig().APP_VERSION;
+  const [hideCustomLoginPage, setHideCustomLoginPage] = useState(false);
 
   useEffect(() => {
     sendPageEvent('login_and_registration', 'login');
@@ -227,7 +230,60 @@ const LoginPage = ({
       />
     );
   }
-
+  if (isCustomLoginPageEnabled && !hideCustomLoginPage) {
+    return (
+      <>
+        <Helmet>
+          <title>{formatMessage(messages['login.page.title'], { siteName: getConfig().SITE_NAME })}</title>
+        </Helmet>
+        <RedirectLogistration
+          success={loginResult.success}
+          redirectUrl={loginResult.redirectUrl}
+          finishAuthUrl={finishAuthUrl}
+        />
+        <div className="p-5 border rounded bg-white" style={{ maxWidth: '438px' }}>
+          <LoginFailureMessage
+            errorCode={errorCode.type}
+            errorCount={errorCode.count}
+            context={errorCode.context}
+          />
+          <ThirdPartyAuthAlert
+            currentProvider={currentProvider}
+            platformName={platformName}
+          />
+          <AccountActivationMessage
+            messageType={activationMsgType}
+          />
+          <div className="d-flex flex-column justify-content-center align-items-center" style={{ gap: "40px" }}>
+            <img
+              src="/logo.svg"
+              alt="Logo"
+              className="img-fluid w-[295px] h-auto"
+            />
+            <ThirdPartyAuth
+              currentProvider={currentProvider}
+              providers={providers}
+              secondaryProviders={secondaryProviders}
+              handleInstitutionLogin={handleInstitutionLogin}
+              thirdPartyAuthApiStatus={thirdPartyAuthApiStatus}
+              isLoginPage
+            />
+            <div className="text-slate-600 text-center" style={{fontSize: '14px'}}>
+              {formatMessage(messages['login.auth.additional.info'])}
+            </div>
+            <button onClick={() => setHideCustomLoginPage(true)} className="btn btn-link  small  text-body" >
+              Switch to default Login
+            </button>
+            {appVersion && (
+              <div className="text-slate-400 text-center" style={{fontSize: '14px'}}>
+                Version {appVersion}
+              </div>
+            )}
+          </div>
+        </div >
+      </>
+    )
+  }
   return (
     <>
       <Helmet>

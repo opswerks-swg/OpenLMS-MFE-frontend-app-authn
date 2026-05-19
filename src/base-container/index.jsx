@@ -12,6 +12,19 @@ import { AuthLargeLayout, AuthMediumLayout, AuthSmallLayout } from './components
 
 const BaseContainer = ({ children, showWelcomeBanner, fullName }) => {
   const enableImageLayout = getConfig().ENABLE_IMAGE_LAYOUT;
+  const enableCustomLoginPage = getConfig().ENABLE_CUSTOM_LOGIN_PAGE;
+
+  if (enableCustomLoginPage) {
+    return (
+      <div className="layout custom-login-page-layout" style={{
+        backgroundImage: `url('/login/background.png')`,
+      }}>
+        <div className="content align-items-center mt-0">
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   if (enableImageLayout) {
     return (

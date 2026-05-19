@@ -95,6 +95,8 @@ const LogistrationPageInner = ({
     return !!provider;
   };
 
+  const customLoginPageEnabled = getConfig().ENABLE_CUSTOM_LOGIN_PAGE;
+
   return (
     <BaseContainer>
       <div>
@@ -125,7 +127,7 @@ const LogistrationPageInner = ({
                     <Tab title={tabTitle} eventKey={selectedPage === LOGIN_PAGE ? LOGIN_PAGE : REGISTER_PAGE} />
                   </Tabs>
                 )
-                : (!isValidTpaHint() && !hideRegistrationLink && (
+                : (!isValidTpaHint() && !hideRegistrationLink && !customLoginPageEnabled && (
                   <Tabs
                     defaultActiveKey={selectedPage}
                     id="controlled-tab"

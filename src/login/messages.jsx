@@ -17,6 +17,11 @@ const messages = defineMessages({
     defaultMessage: 'Password',
     description: 'Label for password field',
   },
+  'login.auth.additional.info': {
+    id: 'login.auth.additional.info',
+    defaultMessage: 'LearningWerks is developed and maintained by OpsWerks. Employees should log in using their Microsoft 365 account to ensure a secure access.',
+    description: 'Description for additional information shown on custom login page',
+  },
   'sign.in.button': {
     id: 'sign.in.button',
     defaultMessage: 'Sign in',
