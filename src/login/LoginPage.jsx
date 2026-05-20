@@ -35,6 +35,7 @@ import { useLogin } from './data/apiHook';
 import { INVALID_FORM, TPA_AUTHENTICATION_FAILURE } from './data/constants';
 import LoginFailureMessage from './LoginFailure';
 import messages from './messages';
+import Logo from './assets/logo.svg';
 
 const LoginPage = ({
   institutionLogin,
@@ -256,7 +257,7 @@ const LoginPage = ({
           />
           <div className="d-flex flex-column justify-content-center align-items-center" style={{ gap: "40px" }}>
             <img
-              src="/logo.svg"
+              src={Logo}
               alt="Logo"
               className="img-fluid w-[295px] h-auto"
             />

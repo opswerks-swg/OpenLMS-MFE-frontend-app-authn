@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
 
+import BackgroundImage from './assets/background.png';
+
 import { DefaultLargeLayout, DefaultMediumLayout, DefaultSmallLayout } from './components/default-layout';
 import {
   ImageExtraSmallLayout, ImageLargeLayout, ImageMediumLayout, ImageSmallLayout,
@@ -17,7 +19,7 @@ const BaseContainer = ({ children, showWelcomeBanner, fullName }) => {
   if (enableCustomLoginPage) {
     return (
       <div className="layout custom-login-page-layout" style={{
-        backgroundImage: `url('/login/background.png')`,
+        backgroundImage: `url(${BackgroundImage})`,
       }}>
         <div className="content align-items-center mt-0">
           {children}
