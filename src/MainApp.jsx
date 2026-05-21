@@ -26,6 +26,8 @@ import { RegistrationPage } from './register';
 import { ResetPasswordPage } from './reset-password';
 
 import './index.scss';
+import 'openlms-branding/dist/tokens.css';
+import 'openlms-branding/dist/utilities.css';
 
 registerIcons();
 

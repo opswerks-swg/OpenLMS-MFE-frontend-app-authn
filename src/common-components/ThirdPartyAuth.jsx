@@ -36,10 +36,11 @@ const ThirdPartyAuth = (props) => {
   const isEnterpriseLoginDisabled = getConfig().DISABLE_ENTERPRISE_LOGIN;
   const enterpriseLoginURL = getConfig().LMS_BASE_URL + ENTERPRISE_LOGIN_URL;
   const isThirdPartyAuthActive = isSocialAuthActive || (isEnterpriseLoginDisabled && isInstitutionAuthActive);
+  const isCustomLoginPageEnabled = getConfig().ENABLE_CUSTOM_LOGIN_PAGE;
 
   return (
     <>
-      {((isEnterpriseLoginDisabled && isInstitutionAuthActive) || isSocialAuthActive) && (
+      {((isEnterpriseLoginDisabled && isInstitutionAuthActive) || isSocialAuthActive) && !isCustomLoginPageEnabled && (
         <div className="mt-4 mb-3 h4">
           {isLoginPage
             ? formatMessage(messages['login.other.options.heading'])

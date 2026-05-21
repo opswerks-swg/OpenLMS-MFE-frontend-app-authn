@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
 
+import BackgroundImage from './assets/background.png';
+
 import { DefaultLargeLayout, DefaultMediumLayout, DefaultSmallLayout } from './components/default-layout';
 import {
   ImageExtraSmallLayout, ImageLargeLayout, ImageMediumLayout, ImageSmallLayout,
@@ -12,6 +14,19 @@ import { AuthLargeLayout, AuthMediumLayout, AuthSmallLayout } from './components
 
 const BaseContainer = ({ children, showWelcomeBanner, fullName }) => {
   const enableImageLayout = getConfig().ENABLE_IMAGE_LAYOUT;
+  const enableCustomLoginPage = getConfig().ENABLE_CUSTOM_LOGIN_PAGE;
+
+  if (enableCustomLoginPage) {
+    return (
+      <div className="layout custom-login-page-layout" style={{
+        backgroundImage: `url(${BackgroundImage})`,
+      }}>
+        <div className="content align-items-center mt-0">
+          {children}
+        </div>
+      </div>
+    );
+  }
 
   if (enableImageLayout) {
     return (
