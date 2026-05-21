@@ -13,11 +13,6 @@ const messages = defineMessages({
     defaultMessage: 'Sign in',
     description: 'Text that appears on the tab to switch between login and register',
   },
-  'logistration.sign.in.custom': {
-    id: 'logistration.sign.in.custom',
-    defaultMessage: 'Third Party Authentication',
-    description: 'Text that appears on the tab to switch between login and register',
-  },
   'logistration.register': {
     id: 'logistration.register',
     defaultMessage: 'Register',

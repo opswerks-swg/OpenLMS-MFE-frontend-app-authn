@@ -101,7 +101,7 @@ const LogistrationPageInner = ({
     <BaseContainer>
       <div>
         {disablePublicAccountCreation
-          ? (
+          ? !customLoginPageEnabled &&(
             <>
               {institutionLogin && (
                 <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>

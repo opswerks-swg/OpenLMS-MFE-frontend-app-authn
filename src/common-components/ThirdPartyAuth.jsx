@@ -40,9 +40,9 @@ const ThirdPartyAuth = (props) => {
 
   return (
     <>
-      {((isEnterpriseLoginDisabled && isInstitutionAuthActive) || isSocialAuthActive) && !isCustomLoginPageEnabled &&(
-         <div className="mt-4 mb-3 h4">
-          {isLoginPage 
+      {((isEnterpriseLoginDisabled && isInstitutionAuthActive) || isSocialAuthActive) && !isCustomLoginPageEnabled && (
+        <div className="mt-4 mb-3 h4">
+          {isLoginPage
             ? formatMessage(messages['login.other.options.heading'])
             : formatMessage(messages['registration.other.options.heading'])}
         </div>
@@ -50,7 +50,7 @@ const ThirdPartyAuth = (props) => {
       {(isLoginPage && !isEnterpriseLoginDisabled && isSocialAuthActive) && (
         <Hyperlink
           className={classNames(
-            '',
+            'btn btn-link btn-sm text-body p-0',
             { 'mb-0': thirdPartyAuthApiStatus === PENDING_STATE },
             { 'mb-4': thirdPartyAuthApiStatus !== PENDING_STATE },
           )}
@@ -68,7 +68,10 @@ const ThirdPartyAuth = (props) => {
       ) : (
         <>
           {(isEnterpriseLoginDisabled && isInstitutionAuthActive) && (
-            zxc
+            <RenderInstitutionButton
+              onSubmitHandler={handleInstitutionLogin}
+              buttonTitle={formatMessage(messages['institution.login.button'])}
+            />
           )}
           {isSocialAuthActive && (
             <div className="row m-0">
