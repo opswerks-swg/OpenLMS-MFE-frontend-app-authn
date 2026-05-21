@@ -45,6 +45,7 @@ const LogistrationPageInner = ({
   const navigate = useNavigate();
   const disablePublicAccountCreation = getConfig().ALLOW_PUBLIC_ACCOUNT_CREATION === false;
   const hideRegistrationLink = getConfig().SHOW_REGISTRATION_LINKS === false;
+  const customLoginPageEnabled = getConfig().ENABLE_CUSTOM_LOGIN_PAGE;
 
   useEffect(() => {
     const authService = getAuthService();
@@ -95,13 +96,11 @@ const LogistrationPageInner = ({
     return !!provider;
   };
 
-  const customLoginPageEnabled = getConfig().ENABLE_CUSTOM_LOGIN_PAGE;
-
   return (
     <BaseContainer>
       <div>
         {disablePublicAccountCreation
-          ? !customLoginPageEnabled &&(
+          ? (
             <>
               {institutionLogin && (
                 <Tabs defaultActiveKey="" id="controlled-tab" onSelect={handleInstitutionLogin}>
@@ -127,7 +126,7 @@ const LogistrationPageInner = ({
                     <Tab title={tabTitle} eventKey={selectedPage === LOGIN_PAGE ? LOGIN_PAGE : REGISTER_PAGE} />
                   </Tabs>
                 )
-                : (!isValidTpaHint() && !hideRegistrationLink && !customLoginPageEnabled && (
+                : (!isValidTpaHint() && !hideRegistrationLink && (
                   <Tabs
                     defaultActiveKey={selectedPage}
                     id="controlled-tab"
@@ -141,7 +140,7 @@ const LogistrationPageInner = ({
                 <Navigate to={updatePathWithQueryParams(key)} replace />
               )}
               <div id="main-content" className="main-content">
-                {!institutionLogin && !isValidTpaHint() && hideRegistrationLink && (
+                {!institutionLogin && !isValidTpaHint() && hideRegistrationLink && !customLoginPageEnabled && (
                   <h3 className="mb-4.5">
                     {formatMessage(messages[selectedPage === LOGIN_PAGE ? 'logistration.sign.in' : 'logistration.register'])}
                   </h3>
